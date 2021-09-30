@@ -11,10 +11,7 @@ board_notebooks_dir = os.environ['PYNQ_JUPYTER_NOTEBOOKS']
 board_project_dir = os.path.join(board_notebooks_dir, 'summernet_deploy')
 
 # check whether board is supported
-def check_env():
-    if not board == 'PYNQ-Z2':
-        raise ValueError("Board {} is not supported.".format(board))
-        
+
 # check if the path already exists, delete if so
 def check_path():
     if os.path.exists(board_project_dir):
@@ -32,7 +29,7 @@ def copy_notebooks():
     dst_nb_dir = os.path.join(board_project_dir)
     copy_tree(src_nb_dir, dst_nb_dir)
     
-check_env()
+
 check_path()
 copy_overlays()
 copy_notebooks()
